@@ -29,16 +29,16 @@ function Audit() {
                     </thead>
 
                     <tbody>
-                        <>
+
                         {reports.map((report) => (
                             <tr key={report.id} className="border-b border-gray-200">
                                 <td className="p-3">{report.title}</td>
                                 <td className="p-3">
                                     <span
-                                        className={py-1 px-3 rounded-md text-sm
+                                        className={`py-1 px-3 rounded-md text-sm
                                         ${report.status === 'Completed' ? 'bg-green-200 text-green-800' :
                                             report.status === 'Pending' ? 'bg-yellow-200 text-yellow-800' :
-                                                'bg-blue-200 text-blue-800'}}
+                                                'bg-blue-200 text-blue-800'}`}
                                     >
                                         {report.status}
                                     </span>
