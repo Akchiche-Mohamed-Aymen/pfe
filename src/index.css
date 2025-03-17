@@ -1,5 +1,22 @@
+@import "tailwindcss";
 
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  
+  box-sizing: border-box;
+}
+.mess{
+  height : 90vh;
+  overflow-y:auto;
+  overflow-x: hidden;
+}
+.send{
+  bottom: 5px;
+
+}
+
+.message {
+  p{
+  @apply text-white px-1 py-2 rounded-sm w-fit;
+} 
+ img{ @apply w-10 h-10 rounded-full}
 }

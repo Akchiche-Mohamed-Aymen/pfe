@@ -1,6 +1,8 @@
 import { useState } from 'react';
-
+import  {useNavigate} from 'react-router-dom'
 function Signup() {
+    const navigate = useNavigate()
+
     const [formData, setFormData] = useState({
         username: '',
         email: '',
@@ -15,7 +17,7 @@ function Signup() {
 
     const handleSignup = (e) => {
         e.preventDefault();
-        console.log("Signup Data:", formData);
+        navigate('/dashboard')
     };
 
     return (
@@ -78,11 +80,20 @@ function Signup() {
 
                     <button
                         type="submit"
-                        className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition"
+                        className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition cursor-pointer"
                     >
                         Sign Up
                     </button>
                 </form>
+                <p className="text-center text-sm text-gray-600 mt-4">
+                     have an account?{' '}
+                    <span
+                        className="text-blue-500 cursor-pointer hover:underline"
+                        onClick={() => navigate('/')}
+                    >
+                        login here
+                    </span>
+                </p>
             </div>
         </div>
     );

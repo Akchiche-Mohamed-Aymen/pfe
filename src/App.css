@@ -1,4 +1,51 @@
 @import "tailwindcss";
 label{
-    @apply pb-3;
+    @apply pb-3 font-bold;
+}
+.ad label{
+    @apply pb-1
+}
+button{
+    @apply text-white cursor-pointer;
+}
+.bars{
+    @apply  text-black;
+}
+body{
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+.modal{
+    @apply absolute left-0 top-0 h-screen w-screen flex items-center  justify-center z-30 ;
+    background-color: rgba(0, 0, 0, 0.589);
+}
+/* HTML: <div class="loader"></div> */
+.loader {
+    width: 48px;
+    height: 48px;
+    border: 5px solid rgba(128, 128, 128, 0.466);
+    border-bottom-color: blue;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    }
+
+    @keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+    } 
+@media (max-width : 650px) {
+    .side{
+        position: absolute;
+        left: -500px;
+    }
+    .show{
+        transition: 4s;
+        left: 0;
+    }
 }
