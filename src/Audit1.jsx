@@ -3,7 +3,7 @@ import * as XLSX from "xlsx";
 import { jsPDF } from "jspdf";
 import notify from "./reusableCode";
 import { useOutletContext } from "react-router-dom";
-function Audit() {
+function Audit({type = 0}) {
   const [uploadedFiles, setUploadedFiles] = useState([]);
   const [pdfPreview, setPdfPreview] = useState(null);
   const [excelData, setExcelData] = useState([]);
@@ -51,7 +51,6 @@ function Audit() {
   const previewExcelFile = (file) => {
     const reader = new FileReader();
     reader.onload = (e) => {
-      console.log("start loading.....");
       const data = new Uint8Array(e.target.result);
       const workbook = XLSX.read(data, { type: "array" });
       const sheetName = workbook.SheetNames[0];
@@ -111,7 +110,7 @@ function Audit() {
     const doc = new jsPDF();
 
     doc.setFontSize(18);
-    doc.text("AuditReport", 10, 10);
+    doc.text(`${type==0 ?"Audit":"Accounting"}Report`, 10, 10);
     doc.setFontSize(12);
 
     doc.text(`File Name: ${reportData.fileName}`, 10, 20);
@@ -137,12 +136,12 @@ function Audit() {
       doc.text("✅ No significant risks detected.", 10, 100);
     }
 
-    doc.save("Audit_Report.pdf");
+    doc.save(`${type==0 ?"Audit":"Accounting"}_Report.pdf`);
   };
  
   return (
     <div className="p-8 bg-gray-100 min-h-screen w-full" style={{ marginLeft : width }}>
-      <h1 className="text-3xl font-bold text-blue-600 mb-6">Audit Reports</h1>
+      <h1 className="text-3xl font-bold text-blue-600 mb-6">{type==0 ?"Audit" : "Accounting"} Reports</h1>
 
       {/* زر رفع الملفات */}
       <div className="bg-white p-4 rounded-md shadow-md mb-6">

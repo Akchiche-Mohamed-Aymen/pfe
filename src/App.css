@@ -8,10 +8,17 @@ label{
 button{
     @apply text-white cursor-pointer;
 }
+.intro{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgb(118, 128, 144);
+    background-position: 50% 50%;
+    background-image: url(https://user-images.strikinglycdn.com/res/hrscywv4p/image/upload/f_auto,q_auto,w_4096/unsplashcom/photo-1681505504714-4ded1bc247e7);
+}
 .bars{
     @apply  text-black;
 }
-body{
+body , .dash{
     scroll-behavior: smooth;
     overflow-x: hidden;
 }

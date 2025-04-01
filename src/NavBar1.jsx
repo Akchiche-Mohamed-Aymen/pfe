@@ -6,30 +6,32 @@ import Conversation from "./Conversation";
 import { generateText } from "./reusableCode";
 import { MdMenuOpen } from "react-icons/md";
 import { FaMoneyCheckDollar } from "react-icons/fa6";
-
-import { TbReportSearch } from "react-icons/tb";
-import { IoLogoBuffer } from "react-icons/io";
-import { CiSettings } from "react-icons/ci";
+import logo1 from "./logo.jpg";
+import logo2 from "./img.jpg";
 import { MdOutlineDashboard } from "react-icons/md";
-
+import amortize from './icons/amortize.png'
+import audit from './icons/audit.png'
+import consulting from './icons/consulting.png'
+import market from './icons/marketing.png'
+//******************************************** */
 const menuItems = [
   {
-    icons: <MdOutlineDashboard size={30} />,
+    icons: <div><MdOutlineDashboard size={34} /></div>,
     label: "Dashboard",
     path: "/dashboard",
   },
   {
-    icons: <CiSettings size={30} />,
+    icons: <img src={audit} className="w-12 rounded-sm h-10 " />,
     label: "Audit",
     path: "/audit",
   },
   {
-    icons: <IoLogoBuffer size={30} />,
+    icons: <img src={consulting} className="w-12 rounded-sm h-10 " />,
     label: "Consulting",
     path: "/consulting",
   },
   {
-    icons: <TbReportSearch size={30} />,
+    icons: <img src={market} className="w-12 h-10 rounded-sm " />,
     label: "Marketing",
     path: "/marketing",
   },
@@ -37,7 +39,12 @@ const menuItems = [
   {
     label: "Accounting",
     path: "/accounting",
-    icons: <FaMoneyCheckDollar size={30} />,
+    icons: <div><FaMoneyCheckDollar size={34} /></div>,
+  },
+  {
+    label: "Amortization",
+    path: "/amortization",
+    icons: <img src={amortize} className="w-12 h-10 rounded-sm " />,
   },
 ];
 
@@ -55,7 +62,9 @@ export default function Sidebar() {
     window.onresize = () => {
       handleSize();
     };
+   
   }, []);
+ 
   const width = open ? 240 : 64;
   const newMessage = (content, type = 1) => {
     setMessages((prevMessages) => [
@@ -91,6 +100,8 @@ export default function Sidebar() {
           className={`shadow-md h-screen fixed left-0 top-0 p-2 flex flex-col duration-500 bg-blue-600 text-white `}
           style={{ width: `${width}px` }}
         >
+            <img src={open ? logo1 : logo2} alt="" className={`rounded-sm ${open ? "w-28 h-24": ""}`} />
+           
           {/* Header */}
           <div className=" px-3 py-2 h-20 flex justify-between items-center">
             <RiMessengerLine
@@ -119,7 +130,7 @@ export default function Sidebar() {
                   key={index}
                   className="px-3 py-2 my-2 hover:bg-blue-800 rounded-md duration-300 cursor-pointer flex gap-2 items-center relative group"
                 >
-                  <div>{item.icons}</div>
+                  {item.icons}
                   <p
                     className={`${
                       !open && "w-0 translate-x-24"

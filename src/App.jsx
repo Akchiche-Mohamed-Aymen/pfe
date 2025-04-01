@@ -7,6 +7,7 @@ import Consulting from "./Consulting";
 import Audit from "./Audit1";
 import Marketing from "./Marketing1";
 import Accounting from "./Accounting";
+import Amortissemet from "./Amortissemet";
 import "./App.css";
 
 //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
@@ -24,7 +25,8 @@ function App() {
         <Route path="audit" element={<Audit />} />
         <Route path="consulting" element={<Consulting />} />
         <Route path="marketing" element={<Marketing />} />
-        <Route path="accounting" element={<Accounting />} />
+        <Route path="accounting" element={<Accounting />} />             
+        <Route path="amortization" element={<Amortissemet />} />             
       </Route>
     </Routes>
   );
